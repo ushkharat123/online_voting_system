@@ -11,15 +11,22 @@ app.secret_key = "online-voting-secret-key"
 # PostgreSQL DATABASE CONNECTION
 # ==========================================
 
-def get_db_connection():
-    conn = psycopg2.connect(
-        host="localhost",
-        database="voting_db",
-        user="postgres",
-        password="tanu123"
-    )
-    return conn
+import os
 
+def get_db_connection():
+    database_url = os.environ.get("DATABASE_URL")
+
+    if database_url:
+        conn = psycopg2.connect(database_url)
+    else:
+        conn = psycopg2.connect(
+            host="localhost",
+            database="voting_db",
+            user="postgres",
+            password="tanu123"
+        )
+
+    return conn
 
 # ==========================================
 # HOME PAGE
