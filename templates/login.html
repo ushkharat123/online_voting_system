@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Voter Login</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <h2>Online Voting System</h2>
+
+    <div>
+
+        <a href="/">Home</a>
+        <a href="/register">Register</a>
+        <a href="/results">Results</a>
+
+    </div>
+
+</nav>
+
+<div class="form-container">
+
+    <h1>Voter Login</h1>
+
+    <form method="POST">
+
+        <label>Email</label>
+
+        <input
+            type="email"
+            name="email"
+            placeholder="Enter email"
+            required
+        >
+
+        <label>Password</label>
+
+        <input
+            type="password"
+            name="password"
+            placeholder="Enter password"
+            required
+        >
+
+        <button type="submit">
+            Login
+        </button>
+
+    </form>
+
+    <p>
+        New voter?
+        <a href="/register">Register here</a>
+    </p>
+
+</div>
+
+</body>
+</html>

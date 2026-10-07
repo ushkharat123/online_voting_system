@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Voting Results</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<nav>
+
+    <h2>Online Voting System</h2>
+
+    <div>
+
+        <a href="/">Home</a>
+        <a href="/vote">Vote</a>
+        <a href="/logout">Logout</a>
+
+    </div>
+
+</nav>
+
+<div class="results-container">
+
+    <h1>Voting Results</h1>
+
+    <table>
+
+        <tr>
+            <th>Candidate</th>
+            <th>Party</th>
+            <th>Total Votes</th>
+        </tr>
+
+        {% for result in results %}
+
+        <tr>
+
+            <td>{{ result[0] }}</td>
+
+            <td>{{ result[1] }}</td>
+
+            <td>{{ result[2] }}</td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+
+    <h2>Graphical Representation</h2>
+
+    <div class="chart-box">
+
+        <canvas id="voteChart"></canvas>
+
+    </div>
+
+</div>
+
+
+<script>
+
+const candidateNames = [
+    {% for result in results %}
+        "{{ result[0] }}",
+    {% endfor %}
+];
+
+const voteCounts = [
+    {% for result in results %}
+        {{ result[2] }},
+    {% endfor %}
+];
+
+
+new Chart(
+    document.getElementById("voteChart"),
+    {
+        type: "bar",
+
+        data: {
+
+            labels: candidateNames,
+
+            datasets: [
+                {
+                    label: "Number of Votes",
+                    data: voteCounts
+                }
+            ]
+
+        },
+
+        options: {
+
+            responsive: true,
+
+            scales: {
+
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 1
+                    }
+                }
+
+            }
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Cast Your Vote</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <h2>Online Voting System</h2>
+
+    <div>
+
+        <a href="/">Home</a>
+        <a href="/results">Results</a>
+        <a href="/logout">Logout</a>
+
+    </div>
+
+</nav>
+
+<div class="vote-container">
+
+    <h1>Cast Your Vote</h1>
+
+    {% if message %}
+
+        <div class="message">
+            {{ message }}
+        </div>
+
+        <a class="button" href="/results">
+            View Results
+        </a>
+
+    {% else %}
+
+        <p>
+            Welcome, {{ session["voter_name"] }}
+        </p>
+
+        <form method="POST">
+
+            {% for candidate in candidates %}
+
+            <div class="candidate">
+
+                <input
+                    type="radio"
+                    name="candidate"
+                    value="{{ candidate[0] }}"
+                    required
+                >
+
+                <div>
+
+                    <h3>{{ candidate[1] }}</h3>
+
+                    <p>
+                        {{ candidate[2] }}
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+            <button type="submit">
+                Cast Vote
+            </button>
+
+        </form>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>

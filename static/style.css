@@ -1,0 +1,331 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f5f9;
+    color: #222;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+    background: #1f3c88;
+    color: white;
+
+    padding: 15px 7%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h2 {
+    margin: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   HOME
+========================= */
+
+.container {
+    width: 85%;
+    margin: auto;
+}
+
+.hero {
+    background: white;
+    text-align: center;
+
+    padding: 60px 20px;
+
+    margin-top: 40px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.hero h1 {
+    font-size: 42px;
+    color: #1f3c88;
+}
+
+.hero p {
+    font-size: 18px;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.button,
+button {
+    background: #1f3c88;
+    color: white;
+
+    padding: 12px 25px;
+
+    border: none;
+    border-radius: 6px;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    font-size: 16px;
+}
+
+button:hover,
+.button:hover {
+    background: #162d68;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.cards {
+    display: flex;
+    gap: 20px;
+
+    margin-top: 30px;
+}
+
+.card {
+    background: white;
+
+    flex: 1;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+
+/* =========================
+   FORMS
+========================= */
+
+.form-container {
+    width: 400px;
+
+    margin: 50px auto;
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.form-container h1 {
+    text-align: center;
+    color: #1f3c88;
+}
+
+.form-container label {
+    display: block;
+
+    margin-top: 15px;
+
+    font-weight: bold;
+}
+
+.form-container input {
+    width: 100%;
+
+    padding: 12px;
+
+    margin-top: 6px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 5px;
+}
+
+.form-container button {
+    width: 100%;
+
+    margin-top: 20px;
+}
+
+
+/* =========================
+   VOTING
+========================= */
+
+.vote-container {
+    width: 650px;
+
+    margin: 40px auto;
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.vote-container h1 {
+    text-align: center;
+
+    color: #1f3c88;
+}
+
+.candidate {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 15px;
+
+    margin: 12px 0;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+}
+
+.candidate:hover {
+    background: #f2f5ff;
+}
+
+.candidate input {
+    width: 20px;
+    height: 20px;
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message {
+    padding: 15px;
+
+    background: #fff3cd;
+
+    border-radius: 5px;
+
+    margin-bottom: 20px;
+
+    text-align: center;
+}
+
+
+/* =========================
+   RESULTS
+========================= */
+
+.results-container {
+    width: 85%;
+
+    margin: 40px auto;
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.results-container h1,
+.results-container h2 {
+    text-align: center;
+
+    color: #1f3c88;
+}
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    margin-bottom: 40px;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+
+    padding: 12px;
+
+    text-align: center;
+}
+
+th {
+    background: #1f3c88;
+
+    color: white;
+}
+
+.chart-box {
+    width: 80%;
+
+    max-width: 800px;
+
+    margin: auto;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width: 700px) {
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 5px;
+    }
+
+    .cards {
+        flex-direction: column;
+    }
+
+    .form-container,
+    .vote-container {
+        width: 90%;
+    }
+
+    .results-container {
+        width: 95%;
+        overflow-x: auto;
+    }
+
+}

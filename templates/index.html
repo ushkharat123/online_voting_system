@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Voting System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<nav>
+    <h2>Online Voting System</h2>
+
+    <div>
+        <a href="/">Home</a>
+        <a href="/register">Register</a>
+        <a href="/login">Login</a>
+        <a href="/results">Results</a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="hero">
+
+        <h1>Online Voting System</h1>
+
+        <p>
+            Welcome to the Online Voting System.
+        </p>
+
+        <p>
+            Register, login and securely cast your vote online.
+        </p>
+
+        <a class="button" href="/register">
+            Register Now
+        </a>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Easy Voting</h3>
+            <p>Simple and user-friendly voting process.</p>
+        </div>
+
+        <div class="card">
+            <h3>Secure</h3>
+            <p>Each registered voter can vote only once.</p>
+        </div>
+
+        <div class="card">
+            <h3>Results</h3>
+            <p>View voting results graphically.</p>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

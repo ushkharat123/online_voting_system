@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin - Manage Candidates</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<nav>
+    <h2>Online Voting System</h2>
+
+    <div>
+        <a href="/">Home</a>
+        <a href="/results">Results</a>
+        <a href="/logout">Logout</a>
+    </div>
+</nav>
+
+<div class="admin-container">
+
+    <h1>Manage Candidates</h1>
+
+    <!-- ADD CANDIDATE -->
+
+    <div class="admin-card">
+
+        <h2>Add Candidate</h2>
+
+        <form method="POST"
+              action="/admin/add-candidate">
+
+            <label>Candidate Name</label>
+
+            <input
+                type="text"
+                name="name"
+                placeholder="Enter candidate name"
+                required
+            >
+
+            <label>Party Name</label>
+
+            <input
+                type="text"
+                name="party"
+                placeholder="Enter party name"
+                required
+            >
+
+            <button type="submit">
+                Add Candidate
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- CANDIDATE LIST -->
+
+    <div class="admin-card">
+
+        <h2>Candidate List</h2>
+
+        <table>
+
+            <tr>
+                <th>ID</th>
+                <th>Candidate Name</th>
+                <th>Party</th>
+                <th>Action</th>
+            </tr>
+
+            {% for candidate in candidates %}
+
+            <tr>
+
+                <td>{{ candidate[0] }}</td>
+
+                <td>{{ candidate[1] }}</td>
+
+                <td>{{ candidate[2] }}</td>
+
+                <td>
+
+                    <form
+                        method="POST"
+                        action="/admin/delete-candidate/{{ candidate[0] }}"
+                    >
+
+                        <button type="submit">
+                            Delete
+                        </button>
+
+                    </form>
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>
